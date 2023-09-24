@@ -181,7 +181,9 @@
 	],
 	"uniqueId": "qmqp6iwgyys",
 	"objectTypes": {
-		"items": [],
+		"items": [
+			"Sprite"
+		],
 		"subfolders": [
 			{
 				"items": [
@@ -320,7 +322,8 @@
 		"items": [
 			"Game",
 			"UI",
-			"Tutorial"
+			"Tutorial",
+			"Login"
 		],
 		"subfolders": []
 	},
@@ -334,7 +337,8 @@
 			"evsGameObjects",
 			"evsLocalization",
 			"evsFly",
-			"evsGame"
+			"evsGame",
+			"evsLogin"
 		],
 		"subfolders": []
 	},
