@@ -1,0 +1,195 @@
+{
+	"name": "evsWindow",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 488213937697176
+				}
+			],
+			"actions": [
+				{
+					"id": "start-timer",
+					"objectClass": "SysParams",
+					"sid": 765800179583591,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "random(5,10)",
+						"type": "once",
+						"tag": "\"flashRay\""
+					}
+				}
+			],
+			"sid": 637071338070294
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Rays",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "showRay",
+					"functionDescription": "",
+					"functionCategory": "Rays",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 749625585194937,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "SprRainRay",
+									"sid": 206390265261986,
+									"parameters": {
+										"instance-variable": "onFlash",
+										"value": "random(0.05,0.15)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "SprRainRay",
+									"sid": 810821177619731,
+									"parameters": {
+										"instance-variable": "offFlash",
+										"value": "random(0.05,0.15)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "SprRainRay",
+									"sid": 890589414956010,
+									"parameters": {
+										"instance-variable": "durationFlash",
+										"value": "random(0.5,1.5)"
+									}
+								},
+								{
+									"id": "flash",
+									"objectClass": "SprRainRay",
+									"sid": 552070750926041,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "SprRainRay.onFlash",
+										"off-time": "SprRainRay.offFlash",
+										"duration": "SprRainRay.durationFlash"
+									}
+								},
+								{
+									"id": "flash",
+									"objectClass": "TileRayEffect",
+									"sid": 557203170216577,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "SprRainRay.onFlash",
+										"off-time": "SprRainRay.offFlash",
+										"duration": "SprRainRay.durationFlash"
+									}
+								}
+							],
+							"sid": 677505026229671
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-flash-ended",
+							"objectClass": "SprRainRay",
+							"sid": 939382582429466,
+							"behaviorType": "Flash"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "SprRainRay",
+							"sid": 810333250974688,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TileRayEffect",
+							"sid": 119637299250053,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "SysParams",
+							"sid": 409541606327240,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "random(5,10)",
+								"type": "regular",
+								"tag": "\"flashRay\""
+							}
+						}
+					],
+					"sid": 188207481793483
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-flash-ended",
+							"objectClass": "TileRayEffect",
+							"sid": 493929784917439,
+							"behaviorType": "Flash"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TileRayEffect",
+							"sid": 571708160562283,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 232647437847065
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "SysParams",
+							"sid": 345380909924502,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"flashRay\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "showRay",
+							"sid": 801437893800402
+						}
+					],
+					"sid": 383580581220464
+				}
+			],
+			"sid": 500263390082403
+		}
+	],
+	"sid": 491344982624044
+}

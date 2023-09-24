@@ -1,0 +1,123 @@
+{
+"objects": [
+		{
+			"id": "book",
+			"urls": [
+			"book.png"
+			],
+			"usedWith": "key" 
+		},
+		{
+			"id": "cable",
+			"urls": [
+			"cableBrk.png",
+			"cableFix.png"
+				],
+			"usedWith": "osc" 
+		},
+		{
+			"id": "glass",
+			"urls": [
+			"glass.png",
+			"glassAcid.png",
+			"glassWater.png"
+				],
+			"usedWith": "apparat" 
+		},
+		{
+			"id": "key",
+			"urls": [
+			"key.png"
+				],
+			"usedWith": "book" 
+		},
+				{
+			"id": "wallet",
+			"urls": [
+			"wallet.png",
+			"walletOut.png"
+				]
+		},
+						{
+			"id": "matches",
+			"urls": [
+			"matches.png",
+			"matchesClosed.png"
+				]
+		},
+				{
+			"id": "book2",
+			"urls": [
+			"book.png"
+			]
+		},
+				{
+			"id": "book3",
+			"urls": [
+			"book.png"
+			]
+		},
+				{
+			"id": "book4",
+			"urls": [
+			"book.png"
+			]
+		},
+				{
+			"id": "book5",
+			"urls": [
+			"book.png"
+			]
+		},
+				{
+			"id": "book6",
+			"urls": [
+			"book.png"
+			]
+		},
+				{
+			"id": "book7",
+			"urls": [
+			"book.png"
+			]
+		},
+				{
+			"id": "book8",
+			"urls": [
+			"book.png"
+			]
+		},
+				{
+			"id": "book9",
+			"urls": [
+			"book.png"
+			]
+		},
+						{
+			"id": "book10",
+			"urls": [
+			"book.png"
+			]
+		},
+						{
+			"id": "book11",
+			"urls": [
+			"book.png"
+			]
+		},
+						{
+			"id": "book12",
+			"urls": [
+			"book.png"
+			]
+		},
+						{
+			"id": "book13",
+			"urls": [
+			"book.png"
+			]
+		}
+		
+		
+	]
+}

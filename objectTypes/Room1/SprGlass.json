@@ -1,0 +1,58 @@
+{
+	"name": "SprGlass",
+	"plugin-id": "Sprite",
+	"sid": 330181410368665,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 94,
+						"height": 138,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4147867,
+						"collisionPoly": {
+							"points": [
+								0.3829787234042553,
+								0.2608695652173913,
+								0.5,
+								0.028985507246376812,
+								0.6063829787234043,
+								0.2608695652173913,
+								0.7872340425531915,
+								0.5,
+								0.8723404255319149,
+								0.9130434782608695,
+								0.5,
+								0.9782608695652174,
+								0.11702127659574468,
+								0.9130434782608695,
+								0.20212765957446807,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 728758252066344,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

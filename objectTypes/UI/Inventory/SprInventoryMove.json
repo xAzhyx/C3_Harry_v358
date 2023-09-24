@@ -1,0 +1,84 @@
+{
+	"name": "SprInventoryMove",
+	"plugin-id": "Sprite",
+	"sid": 617435901610617,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "selfWidth",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 264941975842629
+		},
+		{
+			"name": "selfHeight",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 744037995581803
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 488515027107911
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 545034551389955
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 65,
+						"height": 65,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2954677,
+						"collisionPoly": {
+							"points": [
+								0.06153846153846154,
+								0.06153846153846154,
+								0.5,
+								0.015384615384615385,
+								0.9230769230769231,
+								0.06153846153846154,
+								0.9692307692307692,
+								0.5,
+								0.9230769230769231,
+								0.9230769230769231,
+								0.5,
+								0.9692307692307692,
+								0.06153846153846154,
+								0.9230769230769231,
+								0.015384615384615385,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 639799806813520,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

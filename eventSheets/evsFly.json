@@ -1,0 +1,664 @@
+{
+	"name": "evsFly",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Flying movement",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "isInLeft",
+					"type": "boolean",
+					"initialValue": "true",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 493046254268026
+				},
+				{
+					"eventType": "variable",
+					"name": "isMobile",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 812720415337606
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 484074793557812
+						}
+					],
+					"actions": [],
+					"sid": 385444254659848,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-mobile",
+									"objectClass": "PlatformInfo",
+									"sid": 955288448239207
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 567747535382922,
+									"parameters": {
+										"group-name": "\"Is on mobile\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 461789923324404,
+									"parameters": {
+										"group-name": "\"Is on mobile\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 456775701930096,
+									"parameters": {
+										"variable": "isMobile",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 533139628026875
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "start-timer",
+									"objectClass": "SprFly",
+									"sid": 110631687278551,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "2 + random(4)",
+										"type": "once",
+										"tag": "\"FlyingTimer\""
+									}
+								}
+							],
+							"sid": 290157260960138
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": ""
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Is on pc",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "waitOver",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 954735952374440
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 385527138924527,
+									"parameters": {
+										"object": "SprFly"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 290552014241107,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 635483260085684,
+											"parameters": {
+												"variable": "waitOver"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 398172925145213,
+											"parameters": {
+												"type": "warn",
+												"message": "\"is on pc\""
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 842676748146515,
+											"parameters": {
+												"variable": "waitOver",
+												"value": "true"
+											}
+										},
+										{
+											"callFunction": "TapOrCursorOverFly",
+											"sid": 500688229526180
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 357607049964333,
+											"parameters": {
+												"seconds": "0.2"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 118941227971791,
+											"parameters": {
+												"variable": "waitOver",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 390840933577813
+								}
+							]
+						}
+					],
+					"sid": 357167634543588
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Is on mobile",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 537207625623908,
+									"parameters": {
+										"object": "SprFly"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 413998181653174,
+									"parameters": {
+										"type": "warn",
+										"message": "\"is on mobile\""
+									}
+								},
+								{
+									"callFunction": "TapOrCursorOverFly",
+									"sid": 294892975999584
+								}
+							],
+							"sid": 982549011385337,
+							"disabled": true
+						}
+					],
+					"sid": 346530823194957
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "SprFly",
+							"sid": 770052856199670,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"FlyingTimer\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 299649616534161,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 601840960185078,
+									"disabled": true,
+									"parameters": {
+										"variable": "isInLeft"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "SprFly",
+									"sid": 388746221812144,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"goToRight\"",
+										"property": "position",
+										"end-x": "random(ViewportRight(\"Fly\") - 40)",
+										"end-y": "random(ViewportHeight(\"Fly\") - 200)",
+										"time": "3",
+										"ease": "easeinoutsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"callFunction": "HandleOrbitAndSines",
+									"sid": 381069333509863,
+									"parameters": [
+										false
+									]
+								}
+							],
+							"sid": 406519577840927
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 498079096401235
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "SprFly",
+									"sid": 412263253658750,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"goToLeft\"",
+										"property": "position",
+										"end-x": "40 + random(200)",
+										"end-y": "40 + random(200)",
+										"time": "5",
+										"ease": "easeoutsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 591427305442298,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": ""
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-tweens-finished",
+							"objectClass": "SprFly",
+							"sid": 873350554888543,
+							"behaviorType": "Tween"
+						}
+					],
+					"actions": [],
+					"sid": 985853031145573,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "toggle-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 563382527169844,
+									"disabled": true,
+									"parameters": {
+										"variable": "isInLeft"
+									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "SprFly",
+									"sid": 569170841470936,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "2 + random(4)",
+										"type": "once",
+										"tag": "\"FlyingTimer\""
+									}
+								},
+								{
+									"callFunction": "HandleOrbitAndSines",
+									"sid": 162115428216076,
+									"parameters": [
+										true
+									]
+								}
+							],
+							"sid": 133028189036278
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": ""
+				},
+				{
+					"functionName": "HandleOrbitAndSines",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "enable",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 561023876769844
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 150426647407229,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 312218747912739,
+									"parameters": {
+										"variable": "enable"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-target",
+									"objectClass": "SprFly",
+									"sid": 431217538170914,
+									"disabled": true,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"x": "Self.X",
+										"y": "Self.Y"
+									}
+								},
+								{
+									"id": "reset-total-rotation",
+									"objectClass": "SprFly",
+									"sid": 969402311852931,
+									"disabled": true,
+									"behaviorType": "Orbit"
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "SprFly",
+									"sid": 655163936930927,
+									"disabled": true,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "update-initial-state",
+									"objectClass": "SprFly",
+									"sid": 964181645930553,
+									"disabled": true,
+									"behaviorType": "SineAngle"
+								},
+								{
+									"id": "set-active",
+									"objectClass": "SprFly",
+									"sid": 234090021328005,
+									"disabled": true,
+									"behaviorType": "SineAngle",
+									"parameters": {
+										"state": "active"
+									}
+								},
+								{
+									"id": "update-initial-state",
+									"objectClass": "SprFly",
+									"sid": 155672012859380,
+									"disabled": true,
+									"behaviorType": "SineSize"
+								},
+								{
+									"id": "set-active",
+									"objectClass": "SprFly",
+									"sid": 600970990163335,
+									"behaviorType": "SineSize",
+									"parameters": {
+										"state": "active"
+									}
+								}
+							],
+							"sid": 840661708460000
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 751948579194509
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "SprFly",
+									"sid": 932089713324118,
+									"disabled": true,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-active",
+									"objectClass": "SprFly",
+									"sid": 531558876401682,
+									"disabled": true,
+									"behaviorType": "SineAngle",
+									"parameters": {
+										"state": "inactive"
+									}
+								},
+								{
+									"id": "set-active",
+									"objectClass": "SprFly",
+									"sid": 546563512439414,
+									"behaviorType": "SineSize",
+									"parameters": {
+										"state": "inactive"
+									}
+								}
+							],
+							"sid": 301620747462421
+						}
+					]
+				},
+				{
+					"functionName": "TapOrCursorOverFly",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 410054821778130,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-timer-running",
+									"objectClass": "SprFly",
+									"sid": 879439462752630,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"FlyingTimer\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop-timer",
+									"objectClass": "SprFly",
+									"sid": 226609776199039,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"FlyingTimer\""
+									}
+								}
+							],
+							"sid": 134156324289595
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-any-playing",
+									"objectClass": "SprFly",
+									"sid": 248471451305477,
+									"behaviorType": "Tween"
+								}
+							],
+							"actions": [
+								{
+									"id": "stop-all-tweens",
+									"objectClass": "SprFly",
+									"sid": 359477785036457,
+									"behaviorType": "Tween"
+								}
+							],
+							"sid": 600358451631437
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 300621269433625,
+									"parameters": {
+										"first-value": "floor(random(2))",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "SprFly",
+									"sid": 869543070700940,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"youCantTouchMe\"",
+										"property": "position",
+										"end-x": "Self.X - random(60)",
+										"end-y": "Self.Y - random(60)",
+										"time": "0.2",
+										"ease": "easeinoutback",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 902023180201903
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 361725357074457
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "SprFly",
+									"sid": 618580616686465,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"youCantTouchMe\"",
+										"property": "position",
+										"end-x": "Self.X + random(40)",
+										"end-y": "Self.Y + random(40)",
+										"time": "0.2",
+										"ease": "easeinoutback",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 850870734368281
+						}
+					]
+				}
+			],
+			"sid": 748387443125238
+		}
+	],
+	"sid": 171515756759420
+}

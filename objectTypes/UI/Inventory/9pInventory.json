@@ -1,0 +1,35 @@
+{
+	"name": "9pInventory",
+	"plugin-id": "NinePatch",
+	"sid": 984715534812087,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "isHiding",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 916306674344311
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 437015922744627
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 524,
+		"height": 384,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 3829930,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

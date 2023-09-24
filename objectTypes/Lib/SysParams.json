@@ -1,0 +1,32 @@
+{
+	"name": "SysParams",
+	"plugin-id": "TiledBg",
+	"sid": 309503147425586,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 204941180732188
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 577066548831137
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 5,
+		"height": 5,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7058444,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

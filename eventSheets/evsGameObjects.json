@@ -1,0 +1,51 @@
+{
+	"name": "evsGameObjects",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 680427477072505,
+					"parameters": {
+						"object": "fmlUsableObjects"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "onTapObject",
+					"sid": 291143874765178
+				}
+			],
+			"sid": 995999994831838
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"functionName": "onTapObject",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 604676090693689,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 297665275503505
+				}
+			]
+		}
+	],
+	"sid": 807780066638977
+}

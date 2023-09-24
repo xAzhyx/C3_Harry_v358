@@ -1,0 +1,150 @@
+{
+	"name": "SprFly",
+	"plugin-id": "Sprite",
+	"sid": 877440649433423,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Orbit",
+			"name": "Orbit",
+			"sid": 102387370142135
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "SineSize",
+			"sid": 278722070253561
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "SineAngle",
+			"sid": 389889359235631
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 943847656262556
+		},
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 403744874090084
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 300,
+						"height": 200,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7712524,
+						"collisionPoly": {
+							"points": [
+								0.16333333333333333,
+								0.245,
+								0.5,
+								0.31,
+								0.6833333333333333,
+								0.47,
+								0.76,
+								0.5,
+								0.7566666666666667,
+								0.635,
+								0.5,
+								0.695,
+								0.35,
+								0.47,
+								0.3466666666666667,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 300,
+						"height": 200,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2500233,
+						"collisionPoly": {
+							"points": [
+								0.16333333333333333,
+								0.245,
+								0.5,
+								0.31,
+								0.6833333333333333,
+								0.47,
+								0.76,
+								0.5,
+								0.7566666666666667,
+								0.635,
+								0.5,
+								0.695,
+								0.35,
+								0.47,
+								0.3466666666666667,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 300,
+						"height": 200,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9193203,
+						"collisionPoly": {
+							"points": [
+								0.16333333333333333,
+								0.245,
+								0.5,
+								0.31,
+								0.6833333333333333,
+								0.47,
+								0.76,
+								0.5,
+								0.7566666666666667,
+								0.635,
+								0.5,
+								0.695,
+								0.35,
+								0.47,
+								0.3466666666666667,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 582835914970217,
+				"name": "AnimFlying",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 40
+			}
+		],
+		"subfolders": []
+	}
+}

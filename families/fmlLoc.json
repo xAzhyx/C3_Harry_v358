@@ -1,0 +1,19 @@
+{
+	"name": "fmlLoc",
+	"plugin-id": "Text",
+	"sid": 490780114734056,
+	"instanceVariables": [
+		{
+			"name": "loc_id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 836488894427090
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"TxtMenuButton"
+	]
+}

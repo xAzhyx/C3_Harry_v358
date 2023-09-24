@@ -1,0 +1,1555 @@
+{
+	"name": "evsTutorial",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Tutorial",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Tutorial_Step",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 440168920545543
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 743318837970459
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 844219770571082,
+							"disabled": true,
+							"parameters": {
+								"tag": "\"gameData\"",
+								"file": "objectsData.json"
+							}
+						},
+						{
+							"id": "set-mesh-size",
+							"objectClass": "SprPhantom",
+							"sid": 585905934791504,
+							"parameters": {
+								"cols": "4",
+								"rows": "8"
+							}
+						}
+					],
+					"sid": 998428397870297
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 755311504480377,
+							"parameters": {
+								"tag": "\"gameData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "parse",
+							"objectClass": "JSON_ObjectsData",
+							"sid": 217238200532648,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "set-animation-speed",
+							"objectClass": "SprBook",
+							"sid": 793143679942686,
+							"parameters": {
+								"speed": "15"
+							}
+						}
+					],
+					"sid": 855488306522049,
+					"disabled": true
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Tutorial_Functions",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Init + Finish"
+						},
+						{
+							"functionName": "prevTutorial",
+							"functionDescription": "",
+							"functionCategory": "Tutorial",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 617966025143780,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "SprPage",
+											"sid": 396158498367683,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "SprTuto",
+											"sid": 231542884809640,
+											"parameters": {
+												"opacity": "0"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "SprCircleHint",
+											"sid": 764289443209859,
+											"parameters": {
+												"opacity": "0"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "Hint",
+											"sid": 908445258544426,
+											"parameters": {
+												"opacity": "0"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "SprDrag",
+											"sid": 415596954734308,
+											"parameters": {
+												"opacity": "0"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "SprBook",
+											"sid": 601293478090620,
+											"parameters": {
+												"opacity": "0"
+											}
+										}
+									],
+									"sid": 591000786915146
+								}
+							]
+						},
+						{
+							"functionName": "startTutorial",
+							"functionDescription": "",
+							"functionCategory": "Tutorial",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "start-fade",
+									"objectClass": "SprBook",
+									"sid": 606867057566486,
+									"behaviorType": "FadeIn"
+								}
+							],
+							"sid": 643684517331154,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Start tutorial"
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-fade-in-finished",
+									"objectClass": "SprBook",
+									"sid": 555732280953376,
+									"behaviorType": "FadeIn"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-speed",
+									"objectClass": "SprBook",
+									"sid": 657598881840862,
+									"parameters": {
+										"speed": "15"
+									}
+								}
+							],
+							"sid": 340729784617243
+						},
+						{
+							"functionName": "finishTutorial",
+							"functionDescription": "",
+							"functionCategory": "Tutorial",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 566104129704659,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 927247445514301,
+											"parameters": {
+												"object": "SprPagePassed"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "SprPagePassed",
+											"sid": 629512760068977,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetOpacity",
+												"end-value": "0",
+												"time": "0.5",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 374324917208648
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "SprPage",
+											"sid": 510299641497489,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetOpacity",
+												"end-value": "0",
+												"time": "0.5",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 902447994912410,
+											"parameters": {
+												"seconds": "0.5"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "SprBook",
+											"sid": 448222260573959,
+											"parameters": {
+												"animation": "\"CloseBook\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-animation-speed",
+											"objectClass": "SprBook",
+											"sid": 272192920405789,
+											"parameters": {
+												"speed": "15"
+											}
+										}
+									],
+									"sid": 642487297593043
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Set Text + Image"
+						},
+						{
+							"functionName": "Set_Tutorial_Image",
+							"functionDescription": "",
+							"functionCategory": "Tutorial",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 238862228734447,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 139657685586468,
+											"parameters": {
+												"first-value": "Tutorial_Step",
+												"comparison": 2,
+												"second-value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "SprTuto",
+											"sid": 662682882761290,
+											"parameters": {
+												"animation": "\"tuto\"&Tutorial_Step",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "restart-fade",
+											"objectClass": "SprTuto",
+											"sid": 753460945666072,
+											"behaviorType": "FadeIn"
+										}
+									],
+									"sid": 994942039973139
+								}
+							]
+						},
+						{
+							"functionName": "Set_Tutorial_Text",
+							"functionDescription": "",
+							"functionCategory": "Tutorial",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "text",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 834153723850131
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 344166491077047,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "typewriter-text",
+											"objectClass": "TxtTuto",
+											"sid": 187258721811979,
+											"parameters": {
+												"text": "text",
+												"duration": "2"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 529166016448230,
+											"parameters": {
+												"variable": "Tutorial_Step",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 886255868608937
+								}
+							]
+						}
+					],
+					"sid": 912623030243900
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Hint",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Active_Hint",
+							"functionDescription": "",
+							"functionCategory": "Hint Tutorial",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 255285931916403,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "restart-fade",
+											"objectClass": "Hint",
+											"sid": 469526413891600,
+											"behaviorType": "FadeIn"
+										},
+										{
+											"id": "restart-fade",
+											"objectClass": "SprCircleHint",
+											"sid": 936502046413568,
+											"behaviorType": "FadeIn"
+										},
+										{
+											"id": "set-active",
+											"objectClass": "SprCircleHint",
+											"sid": 224163547129303,
+											"behaviorType": "SineSize",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "SprCircleHint",
+											"sid": 929286869765526,
+											"behaviorType": "SineMove",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "Hint",
+											"sid": 518963213810915,
+											"behaviorType": "SineSize",
+											"parameters": {
+												"state": "active"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "Hint",
+											"sid": 409185570498898,
+											"behaviorType": "SineMove",
+											"parameters": {
+												"state": "active"
+											}
+										}
+									],
+									"sid": 397106554949594
+								}
+							]
+						},
+						{
+							"functionName": "Desactive_Hint",
+							"functionDescription": "",
+							"functionCategory": "Hint Tutorial",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 478238533913967,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "restart-fade",
+											"objectClass": "Hint",
+											"sid": 737752441808725,
+											"behaviorType": "FadeOut"
+										},
+										{
+											"id": "restart-fade",
+											"objectClass": "SprCircleHint",
+											"sid": 448967709589058,
+											"behaviorType": "FadeOut"
+										},
+										{
+											"id": "set-active",
+											"objectClass": "SprCircleHint",
+											"sid": 930933853211591,
+											"behaviorType": "SineSize",
+											"parameters": {
+												"state": "inactive"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "SprCircleHint",
+											"sid": 114027991836065,
+											"behaviorType": "SineMove",
+											"parameters": {
+												"state": "inactive"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "Hint",
+											"sid": 446445958774877,
+											"behaviorType": "SineSize",
+											"parameters": {
+												"state": "inactive"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "Hint",
+											"sid": 645516228792359,
+											"behaviorType": "SineMove",
+											"parameters": {
+												"state": "inactive"
+											}
+										}
+									],
+									"sid": 704571354415461
+								}
+							]
+						}
+					],
+					"sid": 201137696660349
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Handler_Tutorial",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Start tutorial when book finish to open"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "SprBook",
+									"sid": 883583312755385,
+									"parameters": {
+										"animation": "\"OpenBook\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 988627113342228,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "Set_Tutorial_Image",
+											"sid": 467067457858876
+										},
+										{
+											"callFunction": "Set_Tutorial_Text",
+											"sid": 729539203509507,
+											"parameters": [
+												"Functions.GetLOC(\"tutorial.tuto_\"&Tutorial_Step)"
+											]
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "SprPage",
+											"sid": 935556075886471,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "SprDrag",
+											"sid": 509015462531661,
+											"parameters": {
+												"object": "SprBook",
+												"image-point-optional": "1"
+											}
+										}
+									],
+									"sid": 870431803782746
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Drag to pass page and handler tutorial"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-drop",
+									"objectClass": "SprDrag",
+									"sid": 449250017812514,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [],
+							"sid": 226455279570341,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "SprDrag",
+											"sid": 672996684343725,
+											"parameters": {
+												"comparison": 3,
+												"x-co-ordinate": "SprBook.X + SprBook.Width / 3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Desactive_Hint",
+											"sid": 372512580510335
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "TxtTuto",
+											"sid": 580872401199831,
+											"parameters": {
+												"opacity": "0"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "SprTuto",
+											"sid": 248880063203909,
+											"parameters": {
+												"opacity": "0"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "SprDrag",
+											"sid": 763536179000945,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 557894444510321,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 636493726381952,
+													"parameters": {
+														"first-value": "Tutorial_Step",
+														"comparison": 0,
+														"second-value": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "finishTutorial",
+													"sid": 774546942674678
+												}
+											],
+											"sid": 774513070233925
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 975140708424931
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "SprPage",
+													"sid": 684229682832193,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"Hide_Page\"&Tutorial_Step",
+														"property": "offsetScaleX",
+														"end-value": "0.1",
+														"time": "0.8",
+														"ease": "default",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no",
+														"repeat-count": "1"
+													}
+												}
+											],
+											"sid": 270249938792204
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "SprDrag",
+											"sid": 141219061364278,
+											"parameters": {
+												"object": "SprBook",
+												"image-point-optional": "1"
+											}
+										}
+									],
+									"sid": 280139531873324
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Pass page and go to the next step"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tweens-finished",
+									"objectClass": "SprPage",
+									"sid": 834304712371940,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Hide_Page\"&Tutorial_Step"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 153555901768448,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-scale",
+											"objectClass": "SprPage",
+											"sid": 751887929011325,
+											"parameters": {
+												"scale": "1"
+											}
+										},
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "SprPage",
+											"sid": 844940021241962,
+											"parameters": {
+												"object": "SprBook",
+												"image-point-optional": "\"Page\""
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 352281209357421,
+											"parameters": {
+												"object-to-create": "SprPagePassed",
+												"layer": "\"Tutorial\"",
+												"x": "SprBook.ImagePointX(\"PagePassed\")",
+												"y": "SprBook.ImagePointY(\"PagePassed\")",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "SprPagePassed",
+											"sid": 882327154314210,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "SprPagePassed",
+											"sid": 684926699253346,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Show_Page\"&Tutorial_Step",
+												"property": "offsetScaleX",
+												"end-value": "1",
+												"time": "0.8",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 340555132676707
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tweens-finished",
+									"objectClass": "SprPagePassed",
+									"sid": 469231426901186,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Show_Page\"&Tutorial_Step"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 998649305016068,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "restart-fade",
+											"objectClass": "TxtTuto",
+											"sid": 954091964393116,
+											"behaviorType": "FadeIn"
+										},
+										{
+											"callFunction": "Set_Tutorial_Image",
+											"sid": 128780928912864
+										},
+										{
+											"callFunction": "Set_Tutorial_Text",
+											"sid": 960087816259582,
+											"parameters": [
+												"Functions.GetLOC(\"tutorial.tuto_\"&Tutorial_Step)"
+											]
+										}
+									],
+									"sid": 580842801599371
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Active Hint"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-typewriter-text-finished",
+									"objectClass": "TxtTuto",
+									"sid": 377745502924434
+								}
+							],
+							"actions": [],
+							"sid": 749807355652996,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "SprDrag",
+											"sid": 818901407375948,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"callFunction": "Active_Hint",
+											"sid": 848221384367989
+										}
+									],
+									"sid": 289682259149220
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Finish animations"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "SprBook",
+									"sid": 480754684310242,
+									"parameters": {
+										"animation": "\"CloseBook\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 530057386711830,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "start-fade",
+											"objectClass": "SprBook",
+											"sid": 139292427681400,
+											"behaviorType": "FadeOut"
+										}
+									],
+									"sid": 586945966657986
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-fade-out-finished",
+									"objectClass": "SprBook",
+									"sid": 775845573941203,
+									"behaviorType": "FadeOut"
+								}
+							],
+							"actions": [],
+							"sid": 448181259340136,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 263642092092192,
+											"parameters": {
+												"layer": "\"Tutorial\"",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 993601746290355
+								}
+							]
+						}
+					],
+					"sid": 309896418139194
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Phantom",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "isCos",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 796008743154770
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 117394810645684
+								}
+							],
+							"actions": [],
+							"sid": 250791578521704,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 818051887437414,
+											"parameters": {
+												"name": "\"x\"",
+												"start-index": "0",
+												"end-index": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 512136803956316,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "1",
+												"mode": "relative",
+												"posx": "-sin(tickcount)/(5.00* 2)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 753704156340549,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "1.5",
+												"mode": "relative",
+												"posx": "sin(tickcount)/(5.00* 2.5)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 600205119775989,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "2",
+												"mode": "relative",
+												"posx": "cos(tickcount)/(5.00* 3)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 339419898435802,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "2.5",
+												"mode": "relative",
+												"posx": "-cos(tickcount)/(5.00* 3.5)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 363652258007724,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "3",
+												"mode": "relative",
+												"posx": "-sin(tickcount)/(5.00* 4)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 822700046243537,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "3.5",
+												"mode": "relative",
+												"posx": "sin(tickcount)/(5.00* 4.5)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 273309081042204,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "4",
+												"mode": "relative",
+												"posx": "cos(tickcount)/(5.00* 5)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 703996716343873,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "4.5",
+												"mode": "relative",
+												"posx": "-cos(tickcount)/(5.00* 5.5)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 408795902354102,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "5",
+												"mode": "relative",
+												"posx": "-sin(tickcount)/(5.00* 6)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 759408384102164,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "5.5",
+												"mode": "relative",
+												"posx": "sin(tickcount)/(5.00* 6.5)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 529501919068726,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "6",
+												"mode": "relative",
+												"posx": "cos(tickcount)/(5.00* 7)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 827875423472285,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "6.5",
+												"mode": "relative",
+												"posx": "-cos(tickcount)/(5.00* 7.5)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 820447976853089,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "7",
+												"mode": "relative",
+												"posx": "-sin(tickcount)/(5.00* 8)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 306404669790892,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "7.5",
+												"mode": "relative",
+												"posx": "sin(tickcount)/(5.00* 8.5)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 501146207904527,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "8",
+												"mode": "relative",
+												"posx": "cos(tickcount)/(5.00* 9)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 330579023717144,
+											"parameters": {
+												"col": "loopindex(\"x\")",
+												"row": "8.5",
+												"mode": "relative",
+												"posx": "-cos(tickcount)/(5.00* 9.5)",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										}
+									],
+									"sid": 790569257069041,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 366827227082939,
+													"parameters": {
+														"name": "\"y\"",
+														"start-index": "0",
+														"end-index": "8"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "setPhantomMechPoint",
+													"sid": 352717248201379,
+													"parameters": [
+														"loopindex(\"x\")",
+														"loopindex(\"y\")",
+														"tickcount"
+													]
+												},
+												{
+													"id": "set-mesh-point",
+													"objectClass": "SprPhantom",
+													"sid": 792016844396452,
+													"disabled": true,
+													"parameters": {
+														"col": "loopindex(\"x\")",
+														"row": "loopindex(\"y\")",
+														"mode": "relative",
+														"posx": "cos(tickcount)/(5.00* (loopindex(\"y\") + 1))",
+														"posy": "0",
+														"z-elevation": "0",
+														"texx": "0",
+														"texy": "0"
+													}
+												}
+											],
+											"sid": 917803464500755,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 634835644667328,
+													"parameters": {
+														"name": "\"y\"",
+														"start-index": "0",
+														"end-index": "2"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 751304019815728,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 122781932874769,
+													"parameters": {
+														"name": "\"y2\"",
+														"start-index": "2",
+														"end-index": "4"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 333325969292860,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 843557625881370,
+													"parameters": {
+														"name": "\"y3\"",
+														"start-index": "4",
+														"end-index": "6"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 944000341804857,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 966335285245884,
+													"parameters": {
+														"name": "\"y4\"",
+														"start-index": "6",
+														"end-index": "8"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 358901820974755,
+											"disabled": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "setPhantomMechPoint",
+							"functionDescription": "",
+							"functionCategory": "Phantom",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "x",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 784584439281180
+								},
+								{
+									"name": "y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 466722017671788
+								},
+								{
+									"name": "tickCountParam",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 181626004198407
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 253380404536774,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 640717681497292,
+											"parameters": {
+												"variable": "isCos"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 971089503305166,
+											"parameters": {
+												"col": "x",
+												"row": "y",
+												"mode": "relative",
+												"posx": "cos(tickCountParam)/(5.00* (y + 1))",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 551790246571740,
+											"parameters": {
+												"col": "x",
+												"row": "y + 0.5",
+												"mode": "relative",
+												"posx": "-cos(tickCountParam)/(5.00* (y + 1 + 0.5))",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										}
+									],
+									"sid": 117450462487117,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 470668676263465
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 121107680062234,
+											"parameters": {
+												"col": "x",
+												"row": "y",
+												"mode": "relative",
+												"posx": "-sin(tickCountParam)/(5.00* (y + 1))",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										},
+										{
+											"id": "set-mesh-point",
+											"objectClass": "SprPhantom",
+											"sid": 407314600788730,
+											"parameters": {
+												"col": "x",
+												"row": "y + 0.5",
+												"mode": "relative",
+												"posx": "sin(tickCountParam)/(5.00* (y + 1 + 0.5))",
+												"posy": "0",
+												"z-elevation": "0",
+												"texx": "0",
+												"texy": "0"
+											}
+										}
+									],
+									"sid": 833479142841817,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "toggle-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 675628160692872,
+											"parameters": {
+												"variable": "isCos"
+											}
+										}
+									],
+									"sid": 154722077275417,
+									"disabled": true
+								}
+							]
+						}
+					],
+					"sid": 696607437551707
+				}
+			],
+			"sid": 400821184695251
+		}
+	],
+	"sid": 213746454270165
+}

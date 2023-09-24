@@ -1,0 +1,35 @@
+{
+	"name": "TxtBottom",
+	"plugin-id": "Text",
+	"sid": 495042614357206,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "twnEndY",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 321792320057241
+		},
+		{
+			"name": "scrollInterrupted",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 638348100159684
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 120991981471200
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 514067990312400
+		}
+	],
+	"effectTypes": []
+}

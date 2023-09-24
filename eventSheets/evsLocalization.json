@@ -1,0 +1,402 @@
+{
+	"name": "evsLocalization",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "lang",
+			"type": "string",
+			"initialValue": "default",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 848541021558579
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 340949326168628
+				}
+			],
+			"actions": [],
+			"sid": 728851681490479,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 617346424224545,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 567126708097363,
+									"parameters": {
+										"first-value": "len(Browser.QueryParam(\"lang\"))",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 700801643095443,
+									"parameters": {
+										"variable": "lang",
+										"value": "Browser.QueryParam(\"lang\")"
+									}
+								}
+							],
+							"sid": 214585522638532
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 764205778061297
+								}
+							],
+							"actions": [],
+							"sid": 647495819842255,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 851366425229030,
+											"parameters": {
+												"variable": "lang",
+												"comparison": 0,
+												"value": "\"default\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 578678324917979,
+											"parameters": {
+												"variable": "lang",
+												"value": "left(Browser.Language, 2)"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 407559496409867,
+											"parameters": {
+												"type": "log",
+												"message": "\"Browser lang: \"&Browser.Language"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 392245867889720,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"Lang browser fixed: \"&lang"
+											}
+										}
+									],
+									"sid": 616017439322110,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 132216592377603,
+													"parameters": {
+														"variable": "lang",
+														"comparison": 1,
+														"value": "\"en\""
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 894380140424018,
+													"parameters": {
+														"variable": "lang",
+														"comparison": 1,
+														"value": "\"es\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 920522913262758,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 427220404955164,
+															"parameters": {
+																"variable": "lang",
+																"value": "\"en\""
+															}
+														}
+													],
+													"sid": 890523340948569
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 362216714094533
+										}
+									],
+									"actions": [],
+									"sid": 389268146365016,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 233052013796609,
+													"parameters": {
+														"variable": "lang",
+														"comparison": 0,
+														"value": "\"en\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 699238788144261,
+													"parameters": {
+														"variable": "lang",
+														"value": "\"en\""
+													}
+												}
+											],
+											"sid": 175261658970289
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 514891686667591,
+													"parameters": {
+														"variable": "lang",
+														"comparison": 0,
+														"value": "\"es\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 366727364054340,
+													"parameters": {
+														"variable": "lang",
+														"value": "\"es\""
+													}
+												}
+											],
+											"sid": 369461105667988
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 236553503822371,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Setted lang: \"&lang"
+									}
+								},
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 254104378659136,
+									"parameters": {
+										"tag": "\"LOC\"",
+										"file": "localization.json"
+									}
+								}
+							],
+							"sid": 596509683803340
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 641778074745431,
+					"parameters": {
+						"tag": "\"LOC\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 932812076448615,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "parse",
+							"objectClass": "JSON_Loc",
+							"sid": 917204609803470,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"callFunction": "InitialLOC",
+							"sid": 142265842406552
+						}
+					],
+					"sid": 367345657630129
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"functionName": "GetLOC",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "id",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 929399331749494
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 807931268958577,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 579913852328452,
+							"parameters": {
+								"value": "JSON_Loc.Get(lang&\".\"&id)"
+							}
+						}
+					],
+					"sid": 942079666568164
+				}
+			]
+		},
+		{
+			"functionName": "InitialLOC",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 966111289191107,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 466833374764134,
+							"parameters": {
+								"object": "fmlLoc"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "fmlLoc",
+							"sid": 651792997399839,
+							"parameters": {
+								"text": "Functions.GetLOC(fmlLoc.loc_id)"
+							}
+						}
+					],
+					"sid": 506739355977299
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "signal",
+							"objectClass": "System",
+							"sid": 798847927596730,
+							"parameters": {
+								"tag": "\"LOC_done\""
+							}
+						}
+					],
+					"sid": 948699424629282,
+					"disabled": true
+				}
+			]
+		}
+	],
+	"sid": 429347959502373
+}

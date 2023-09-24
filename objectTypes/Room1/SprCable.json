@@ -1,0 +1,58 @@
+{
+	"name": "SprCable",
+	"plugin-id": "Sprite",
+	"sid": 889338861806560,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 186,
+						"height": 107,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6584099,
+						"collisionPoly": {
+							"points": [
+								0.27419354838709675,
+								0.4766355140186916,
+								0.5,
+								0.38317757009345793,
+								0.956989247311828,
+								0.06542056074766354,
+								0.8763440860215054,
+								0.5,
+								0.7043010752688172,
+								0.48598130841121495,
+								0.5,
+								0.822429906542056,
+								0.053763440860215055,
+								0.897196261682243,
+								0.22580645161290322,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 617876314997742,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

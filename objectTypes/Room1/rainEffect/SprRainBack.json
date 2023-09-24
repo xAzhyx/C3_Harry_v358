@@ -1,0 +1,54 @@
+{
+	"name": "SprRainBack",
+	"plugin-id": "Sprite",
+	"sid": 766760424896630,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 219,
+						"height": 226,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "D:\\PROJECTS\\[ASSETS & DOCS]\\Harry C3\\Assets(LAST)\\window.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4275292,
+						"collisionPoly": {
+							"points": [
+								0.005698005698005696,
+								0.014965986394557823,
+								0.95014245014245,
+								0.009523809523809521,
+								1,
+								0.03877551020408161,
+								0.9914529914529915,
+								0.9918367346938776,
+								0.03133903133903133,
+								0.9945578231292518,
+								0,
+								0.9510204081632656
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 145756488423918,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

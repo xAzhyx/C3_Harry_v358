@@ -1,0 +1,755 @@
+{
+	"name": "evsUtils",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Utils",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 651877846463319
+						}
+					],
+					"actions": [
+						{
+							"id": "init",
+							"objectClass": "ProUI",
+							"sid": 489040576280711
+						},
+						{
+							"id": "set-y",
+							"objectClass": "TxtBottom",
+							"sid": 417332812857713,
+							"parameters": {
+								"y": "SprMask.Y + SprMask.Height / 2"
+							}
+						}
+					],
+					"sid": 709495165265907
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 453241574217462,
+							"parameters": {
+								"tag": "\"LOC\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "StartScrollText",
+							"sid": 441507873522510,
+							"parameters": [
+								"Functions.GetLOC(\"intro.intro_0\")"
+							]
+						}
+					],
+					"sid": 340930798099062
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "UtilsLayers",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 475422119536257
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "globalThis.twns = [];"
+								}
+							],
+							"sid": 422194652256724
+						},
+						{
+							"eventType": "comment",
+							"text": "Show/Hide"
+						},
+						{
+							"functionName": "ShowLayer",
+							"functionDescription": "",
+							"functionCategory": "UtilsLayers",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "tweenTime",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 641212593573476
+								},
+								{
+									"name": "layer",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 361482114068222
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 327713718237819,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-playing",
+											"objectClass": "SysParams",
+											"sid": 886312247327388,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"hide_\"&layer"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 927821402558440,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "AddTweenData",
+													"sid": 361724491877601,
+													"parameters": [
+														"\"show_\"&layer"
+													]
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 966143483322244,
+													"parameters": {
+														"layer": "layer",
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "tween-value",
+													"objectClass": "SysParams",
+													"sid": 478214373319053,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"show_\"&layer",
+														"start-value": "0",
+														"end-value": "100",
+														"time": "tweenTime",
+														"ease": "easeoutsine",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no",
+														"repeat-count": "1"
+													}
+												}
+											],
+											"sid": 960985129790767
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "HideLayer",
+							"functionDescription": "",
+							"functionCategory": "UtilsLayers",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "tweenTime",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 991249616784362
+								},
+								{
+									"name": "layer",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 972344981187429
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 593016676408042,
+									"parameters": {
+										"type": "warn",
+										"message": "\" - HideLayer(\"&tweenTime&\", \"&layer&\")\""
+									}
+								}
+							],
+							"sid": 749088096560151,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-playing",
+											"objectClass": "SysParams",
+											"sid": 976858645536653,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"show_\"&layer"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 175262214870567,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "AddTweenData",
+													"sid": 677371651226107,
+													"parameters": [
+														"\"hide_\"&layer"
+													]
+												},
+												{
+													"id": "tween-value",
+													"objectClass": "SysParams",
+													"sid": 816344095723648,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"hide_\"&layer",
+														"start-value": "100",
+														"end-value": "0",
+														"time": "tweenTime",
+														"ease": "easeoutsine",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no",
+														"repeat-count": "1"
+													}
+												}
+											],
+											"sid": 330822314855004
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Add remove"
+						},
+						{
+							"functionName": "AddTweenData",
+							"functionDescription": "",
+							"functionCategory": "UtilsLayers",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "tweenName",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 426448218600697
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 690437226799144,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"type": "script",
+											"script": "globalThis.twns.push(localVars.tweenName);\nconsole.warn(globalThis.twns);"
+										}
+									],
+									"sid": 320926375412390
+								}
+							]
+						},
+						{
+							"functionName": "RemoveTweenData",
+							"functionDescription": "",
+							"functionCategory": "UtilsLayers",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "tweenName",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 495102874384191
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 534032917389165,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"type": "script",
+											"script": "const twns = globalThis.twns;\ntwns.splice(twns.indexOf(localVars.tweenName), 1);"
+										}
+									],
+									"sid": 451802541323128
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Events"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-any-playing",
+									"objectClass": "SysParams",
+									"sid": 654099240844411,
+									"behaviorType": "Tween"
+								}
+							],
+							"actions": [],
+							"sid": 661446955167549,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"type": "script",
+											"script": "const twns = globalThis.twns;\nfor(var i=0; i<twns.length; i++) {\n\truntime.callFunction(\"checkTweenIsPlaying\", twns[i]);\n}"
+										}
+									],
+									"sid": 279155470935374
+								}
+							]
+						},
+						{
+							"functionName": "CheckTweenIsPlaying",
+							"functionDescription": "",
+							"functionCategory": "UtilsLayers",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "tweenName",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 289002968201818
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 356473216270258,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-playing",
+											"objectClass": "SysParams",
+											"sid": 455163608738514,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "tweenName"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-opacity",
+											"objectClass": "System",
+											"sid": 550751722475971,
+											"parameters": {
+												"layer": "tokenat(tweenName, 1, \"_\")",
+												"opacity": "floor(SysParams.Tween.Value(tweenName))"
+											}
+										}
+									],
+									"sid": 820583398017886
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": ""
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-tweens-finished",
+									"objectClass": "SysParams",
+									"sid": 546617720856591,
+									"behaviorType": "Tween"
+								}
+							],
+							"actions": [],
+							"sid": 778959004971488,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 680112142432875,
+											"parameters": {
+												"first-value": "tokenat(SysParams.Tween.Tags, 0, \"_\")",
+												"comparison": 0,
+												"second-value": "\"hide\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 530915382634173,
+											"parameters": {
+												"layer": "tokenat(SysParams.Tween.Tags, 1, \"_\")",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 542026963078890
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "RemoveTweenData",
+											"sid": 534957500919149,
+											"parameters": [
+												"SysParams.Tween.Tags"
+											]
+										}
+									],
+									"sid": 190348751760213
+								}
+							]
+						}
+					],
+					"sid": 462641021633178
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "UtilsText",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": ""
+						},
+						{
+							"functionName": "StartScrollText",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "text",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 708765122699379
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 455161820905365,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TxtBottom",
+											"sid": 336479824657170,
+											"parameters": {
+												"text": "text"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 229895913000738,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-height",
+											"objectClass": "TxtBottom",
+											"sid": 526038612474217,
+											"parameters": {
+												"height": "Self.TextHeight + 20"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 906421055010036,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "TxtBottom",
+											"sid": 162708329607083,
+											"parameters": {
+												"y": "SprMask.Y + SprMask.Height / 2"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "TxtBottom",
+											"sid": 390453799325782,
+											"parameters": {
+												"instance-variable": "twnEndY",
+												"value": "SprMask.Y - Self.Height - 20"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "TxtBottom",
+											"sid": 106417185213123,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"twnScrollText\"",
+												"property": "offsetY",
+												"end-value": "TxtBottom.twnEndY",
+												"time": "(Self.Height / 524) * 5",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 696588002075880
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": ""
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-drag-start",
+									"objectClass": "TxtBottom",
+									"sid": 317313034591505,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [],
+							"sid": 559624957982530,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-playing",
+											"objectClass": "TxtBottom",
+											"sid": 583850252494184,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"twnScrollText\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "TxtBottom",
+											"sid": 461216392175670,
+											"parameters": {
+												"instance-variable": "scrollInterrupted",
+												"value": "true"
+											}
+										},
+										{
+											"id": "stop-tweens",
+											"objectClass": "TxtBottom",
+											"sid": 811576016590637,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"twnScrollText\""
+											}
+										}
+									],
+									"sid": 298797730908630
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 724794505000952
+										}
+									],
+									"actions": [
+										{
+											"id": "drop",
+											"objectClass": "TxtBottom",
+											"sid": 507959047065885,
+											"behaviorType": "DragDrop"
+										}
+									],
+									"sid": 516434337217762
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-drop",
+									"objectClass": "TxtBottom",
+									"sid": 204974381804538,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [],
+							"sid": 374300948434232,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "TxtBottom",
+											"sid": 185011342247625,
+											"parameters": {
+												"instance-variable": "scrollInterrupted"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "TxtBottom",
+											"sid": 636768649129501,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"twnScrollText\"",
+												"property": "offsetY",
+												"end-value": "TxtBottom.twnEndY",
+												"time": "((Self.Y - TxtBottom.twnEndY) / 524) * 5",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 688515417884032
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": ""
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tweens-finished",
+									"objectClass": "TxtBottom",
+									"sid": 241501221761349,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"twnScrollText\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "TxtBottom",
+									"sid": 638182049658382,
+									"parameters": {
+										"instance-variable": "scrollInterrupted",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "TxtBottom",
+									"sid": 462949992836281,
+									"parameters": {
+										"y": "SprMask.Y + SprMask.Height / 2"
+									}
+								}
+							],
+							"sid": 916711791410133
+						}
+					],
+					"sid": 701951157173226
+				}
+			],
+			"sid": 901886716110782
+		}
+	],
+	"sid": 517092237508041
+}

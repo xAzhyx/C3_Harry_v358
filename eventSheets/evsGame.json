@@ -1,0 +1,150 @@
+{
+	"name": "evsGame",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "evsLocalization"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "evsUtils"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "evsInventory"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "evsTutorial"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "evsWindow"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "evsMenu"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "evsGameObjects"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "evsFly"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 908597271066000
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "prevTutorial",
+					"sid": 647423814562514
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 605802854742496,
+					"parameters": {
+						"tag": "\"objectsData\"",
+						"file": "objectsData.json"
+					}
+				}
+			],
+			"sid": 741796376585405
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 443796618826505,
+					"parameters": {
+						"tag": "\"objectsData\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 950437388487986,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "parse",
+							"objectClass": "JSON_ObjectsData",
+							"sid": 985070362560020,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 709076637877504,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"callFunction": "createInventory",
+							"sid": 987964210468707
+						}
+					],
+					"sid": 582437253513691,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 667451315426093,
+									"disabled": true,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"callFunction": "hideInventory",
+									"sid": 154570438871304,
+									"disabled": true
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 637307621952908,
+									"disabled": true,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"callFunction": "startTutorial",
+									"sid": 511150981447538,
+									"disabled": true
+								},
+								{
+									"callFunction": "showInventory",
+									"sid": 145451311543178,
+									"disabled": true
+								}
+							],
+							"sid": 196626990399895
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 490305689253652
+}

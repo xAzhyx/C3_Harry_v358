@@ -1,0 +1,71 @@
+{
+	"name": "fmlUsableObjects",
+	"plugin-id": "Sprite",
+	"sid": 995709441380786,
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 357099414987345
+		},
+		{
+			"name": "isTaked",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 709797266708516
+		},
+		{
+			"name": "isUsed",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 549529709931179
+		},
+		{
+			"name": "isOpen",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 388130253116162
+		},
+		{
+			"name": "canBeTaked",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 278349322561955
+		},
+		{
+			"name": "canBeOpened",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 910360007474681
+		},
+		{
+			"name": "canBeUsed",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 757398556931205
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"SprApparat",
+		"SprKey",
+		"Sprite2",
+		"SprLaser",
+		"SprOsc",
+		"SprDoor",
+		"SprBooks",
+		"SprPapers",
+		"SprWallet",
+		"SprWindow",
+		"SprRoper"
+	]
+}

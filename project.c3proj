@@ -1,0 +1,608 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 35800,
+	"name": "C3 Harry",
+	"runtime": "c3",
+	"useWorker": "dom",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "PlatformInfo",
+			"name": "Platform info",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "aekiro_proui",
+			"name": "ProUI",
+			"author": "Aekiro",
+			"bundled": false,
+			"version": "1.817"
+		},
+		{
+			"type": "behavior",
+			"id": "Anchor",
+			"name": "Anchor",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Orbit",
+			"name": "Orbit",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "aekiro_button",
+			"name": "Button",
+			"author": "Aekiro",
+			"bundled": false,
+			"version": "1.817"
+		},
+		{
+			"type": "behavior",
+			"id": "aekiro_gameobject",
+			"name": "Game Object",
+			"author": "Aekiro",
+			"bundled": false,
+			"version": "1.817"
+		},
+		{
+			"type": "behavior",
+			"id": "aekiro_scrollView",
+			"name": "Scroll View",
+			"author": "Aekiro",
+			"bundled": false,
+			"version": "1.817"
+		}
+	],
+	"uniqueId": "qmqp6iwgyys",
+	"objectTypes": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"SprRoom1",
+					"SprDoor",
+					"SprRoper",
+					"SprTable",
+					"SprLaser",
+					"SprBooks",
+					"SprApparat",
+					"SprWindow",
+					"SprOsc",
+					"SprCable",
+					"SprGlass",
+					"SprFly"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"SprDrawer",
+							"SprWallet",
+							"SprKey",
+							"SprPapers",
+							"Sprite2"
+						],
+						"subfolders": [],
+						"name": "Drawer"
+					},
+					{
+						"items": [
+							"SprRain",
+							"SprRainBack",
+							"SprRainRay",
+							"TileRayEffect"
+						],
+						"subfolders": [],
+						"name": "rainEffect"
+					}
+				],
+				"name": "Room1"
+			},
+			{
+				"items": [
+					"9pText",
+					"TiledBackground"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"9pMenu",
+							"SprMenuButton",
+							"TxtMenuButton",
+							"SprMenuShadow"
+						],
+						"subfolders": [],
+						"name": "Menu"
+					},
+					{
+						"items": [
+							"9pInventory",
+							"TiledScrollInventory",
+							"TiledBackInventory",
+							"sprItem",
+							"SprBag",
+							"SprInventoryMove",
+							"SprInventoryMoveIcon",
+							"TiledInventory"
+						],
+						"subfolders": [],
+						"name": "Inventory"
+					}
+				],
+				"name": "UI"
+			},
+			{
+				"items": [
+					"SprBook",
+					"SprPage",
+					"TxtTuto",
+					"SprCircleHint",
+					"Hint",
+					"SprDrag",
+					"SprPagePassed",
+					"SprTuto",
+					"SprPhantom"
+				],
+				"subfolders": [],
+				"name": "Tuto"
+			},
+			{
+				"items": [
+					"AJAX",
+					"JSON_ObjectsData",
+					"Touch",
+					"ProUI",
+					"Browser",
+					"Keyboard",
+					"PlatformInfo",
+					"ArrayPositions",
+					"ArrayState",
+					"SysParams",
+					"JSON_Loc",
+					"Mouse"
+				],
+				"subfolders": [],
+				"name": "Lib"
+			},
+			{
+				"items": [
+					"SprRoom2"
+				],
+				"subfolders": [],
+				"name": "Room2"
+			},
+			{
+				"items": [
+					"TileMask",
+					"SprMask",
+					"TxtBottom"
+				],
+				"subfolders": [],
+				"name": "Text"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [
+			"fmlUsableObjects",
+			"fmlLoc"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Game",
+			"UI",
+			"Tutorial"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"evsUtils",
+			"evsInventory",
+			"evsTutorial",
+			"evsWindow",
+			"evsMenu",
+			"evsGameObjects",
+			"evsLocalization",
+			"evsFly",
+			"evsGame"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 117871664989104,
+					"script-info": {
+						"purpose": "main"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 439530923282969,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 165023542856958,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 391944172290563,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 123246812656883,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 330430564373265,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 703440117636496,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 729879586145529,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "objectsData.json",
+					"type": "application/json",
+					"sid": 204975050925315,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "walletOut.png",
+					"type": "image/png",
+					"sid": 718415829024312,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "book.png",
+					"type": "image/png",
+					"sid": 695447452785073,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "cableBrk.png",
+					"type": "image/png",
+					"sid": 650734188003372,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "cableFix.png",
+					"type": "image/png",
+					"sid": 995008643269814,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "glass.png",
+					"type": "image/png",
+					"sid": 719266295648381,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "glassAcid.png",
+					"type": "image/png",
+					"sid": 721586720967257,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "glassWater.png",
+					"type": "image/png",
+					"sid": 555675944380585,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "key.png",
+					"type": "image/png",
+					"sid": 121353554307695,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "wallet.png",
+					"type": "image/png",
+					"sid": 394677018414387,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "matches.png",
+					"type": "image/png",
+					"sid": 700812587796433,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "matchesClosed.png",
+					"type": "image/png",
+					"sid": 535946446195560,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "localization.json",
+					"type": "application/json",
+					"sid": 253022651307171,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "1.0.0.0",
+		"author": "",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"zAxisScale": "normalized",
+		"fov": 0.7853981633974483,
+		"useLoaderLayout": false,
+		"fullscreenMode": "scale-outer",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "landscape",
+		"webgpu": "auto",
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"zNear": 1,
+		"zFar": 10000,
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "file",
+		"autoReloadScriptsOnPreview": false,
+		"exportFileStructure": "flat",
+		"uidAllocationMode": "increment"
+	},
+	"viewportWidth": 1280,
+	"viewportHeight": 720,
+	"firstLayout": "Game"
+}

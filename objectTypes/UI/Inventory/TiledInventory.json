@@ -1,0 +1,27 @@
+{
+	"name": "TiledInventory",
+	"plugin-id": "TiledBg",
+	"sid": 664430655729645,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "aekiro_gameobject",
+			"name": "GameObject",
+			"sid": 940402328821439
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 25,
+		"height": 25,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 533296,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

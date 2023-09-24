@@ -1,0 +1,217 @@
+{
+	"name": "evsMenu",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Handle menu options",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "OpenMenu",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 164708148671032,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 759805759075176
+						}
+					]
+				}
+			],
+			"sid": 919031938872049
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Button effects",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "btnWidth",
+					"type": "number",
+					"initialValue": "251",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": true,
+					"sid": 710106485566303
+				},
+				{
+					"eventType": "variable",
+					"name": "btnHeight",
+					"type": "number",
+					"initialValue": "56",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": true,
+					"sid": 773831068660223
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 226817243660133,
+							"parameters": {
+								"object": "SprMenuButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PressButton",
+							"sid": 937664550578810,
+							"parameters": [
+								"SprMenuButton.id"
+							]
+						}
+					],
+					"sid": 534789144358675
+				},
+				{
+					"eventType": "comment",
+					"text": ""
+				},
+				{
+					"functionName": "PressButton",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "id",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 225624418703294
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 200504432355852,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 122042865863194,
+									"parameters": {
+										"object": "SprMenuButton",
+										"expression": "id",
+										"comparison": 0,
+										"value": "SprMenuButton.id"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 220594548084458,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "tween-two-properties",
+											"objectClass": "SprMenuButton",
+											"sid": 102177828115665,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "size",
+												"end-x": "btnWidth - 5",
+												"end-y": "btnHeight - 5",
+												"time": "0.1",
+												"ease": "easeoutsine",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "yes",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 104234803607842,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-children",
+													"objectClass": "SprMenuButton",
+													"sid": 339419195347536,
+													"parameters": {
+														"child": "SprMenuShadow",
+														"which": "own"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-two-properties",
+													"objectClass": "SprMenuShadow",
+													"sid": 339408476049348,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"\"",
+														"property": "position",
+														"end-x": "Self.X + 4",
+														"end-y": "Self.y + 4",
+														"time": "0.1",
+														"ease": "easeoutsine",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "yes",
+														"repeat-count": "1"
+													}
+												},
+												{
+													"id": "tween-two-properties",
+													"objectClass": "SprMenuShadow",
+													"sid": 869751847752409,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"\"",
+														"property": "size",
+														"end-x": "Self.Width - 2",
+														"end-y": "Self.Height - 2",
+														"time": "0.1",
+														"ease": "easeoutsine",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "yes",
+														"repeat-count": "1"
+													}
+												}
+											],
+											"sid": 361929506295777
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 485792521905652
+		}
+	],
+	"sid": 969558695138622
+}
